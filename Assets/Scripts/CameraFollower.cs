@@ -4,6 +4,7 @@ using UnityEngine;
 public class CameraFollower : MonoBehaviour
 {
     public GameObject pl1, pl2;
+    public float minZpos;
     public float distanceZoomFactor;
     public float zoomBoost;
     public float currentDistance;
@@ -20,7 +21,7 @@ public class CameraFollower : MonoBehaviour
     void Update()
     {
         transform.position = GetCameraPosition();
-        cam.m_Lens.OrthographicSize = SetCameraZoom();
+        transform.position = SetCameraZoom();
     }
 
     public Vector3 GetCameraPosition()
@@ -30,8 +31,9 @@ public class CameraFollower : MonoBehaviour
         return pl1.transform.position + (direction)/2;
     }
 
-    private float SetCameraZoom()
+    private Vector3 SetCameraZoom()
     {
-        return Mathf.Clamp(currentDistance / distanceZoomFactor+zoomBoost,7,15);
+        float zpos = Mathf.Clamp(-currentDistance * distanceZoomFactor + zoomBoost, minZpos, 3);
+        return new Vector3(transform.position.x, transform.position.y, zpos);
     }
 }

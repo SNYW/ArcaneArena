@@ -27,7 +27,7 @@ public class AnimationManager : MonoBehaviour
             }
             else
             {
-                animator.SetFloat("moveVal", GetComponent<Rigidbody2D>().velocity.x);
+                animator.SetFloat("moveVal", GetComponent<Rigidbody>().velocity.x);
             }
         }
         animator.SetBool("Grounded", playerController.IsGrounded());

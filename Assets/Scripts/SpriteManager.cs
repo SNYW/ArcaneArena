@@ -15,8 +15,8 @@ public class SpriteManager : MonoBehaviour
     }
 
     void Update()
-    {
-        float moveVal = playerController.GetGamepad().leftStick.ReadValue().x;
+    { 
+       /* float moveVal = playerController.GetGamepad().leftStick.ReadValue().x;
         bool flip = true;
         if (moveVal.Equals(0))
         {
@@ -30,6 +30,6 @@ public class SpriteManager : MonoBehaviour
         foreach (SpriteRenderer sr in transform.parent.transform.parent.GetComponentsInChildren<SpriteRenderer>())
         {
             sr.flipX = flip;
-        }
+        }*/
     }
 }

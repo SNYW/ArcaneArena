@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private PlayerControls playerControls;
-    private Rigidbody2D rb;
-    private Collider2D col;
+    private Rigidbody rb;
+    private Collider col;
     public int playerIndex;
     public Player player;
     public bool aiming;
@@ -25,8 +25,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerControls();
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         player = GetComponent<Player>();
         aiming = false;
         charging = false;
@@ -118,8 +118,7 @@ public class PlayerController : MonoBehaviour
         if(player.shotPrefab != null && !charging)
         {
             player.aimIndicator.SetActive(true);
-            rb.gravityScale = 0.1f;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 5);
+            rb.velocity = new Vector2(rb.velocity.x/2, rb.velocity.y / 5);
             aiming = true;
             player.StartAiming();
         }
@@ -131,7 +130,6 @@ public class PlayerController : MonoBehaviour
         {
 
             player.aimIndicator.SetActive(false);
-            rb.gravityScale = 1;
             player.FireShot(aimAngle);
             aiming = false;
         }
@@ -141,8 +139,8 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, 0, maxJumpSpeed)); ;
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode.Impulse);
+            rb.velocity = new Vector2(rb.velocity.y, Mathf.Clamp(rb.velocity.y, 0, maxJumpSpeed)); ;
         }
     }
 
@@ -155,7 +153,7 @@ public class PlayerController : MonoBehaviour
         Vector2 bottomRightPoint = transform.position;
         bottomRightPoint.x += col.bounds.extents.x;
         bottomRightPoint.y -= col.bounds.extents.y+0.1f;
-        return Physics2D.OverlapArea(topLeftPoint, bottomRightPoint, ground);
+        return Physics.OverlapBox(transform.position, col.bounds.extents, Quaternion.identity, ground).Length > 0;
     }
 
     private void Move()
@@ -163,7 +161,7 @@ public class PlayerController : MonoBehaviour
         if (!charging)
         {
             moveInput = gamepad.leftStick.ReadValue();
-            if (aiming) moveInput /= 10;
+            if (aiming) moveInput /= 100;
             Vector3 currentPosition = transform.position;
             rb.AddForce(new Vector2(moveInput.x * moveSpeed * Time.deltaTime,LeftStickYValue()));
             transform.position = currentPosition;
@@ -199,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
     private float LeftStickYValue()
     {
-        if(gamepad.leftStick.ReadValue().y < 0 && !aiming)
+        if(gamepad.leftStick.ReadValue().y < -0.7f && !aiming)
         {
             return gamepad.leftStick.ReadValue().y * moveSpeed * Time.deltaTime;
         }

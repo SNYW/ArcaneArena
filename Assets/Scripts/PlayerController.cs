@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour
     public Player player;
     public bool aiming;
     public bool charging;
-    public bool grounded;
     public Vector2 aimAngle;
     private Gamepad gamepad;
 
     public float moveSpeed;
+    public float drag;
     public float maxMoveSpeed;
     public float jumpForce;
     public float maxJumpSpeed;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        grounded = IsGrounded();
+        ManageVelocity();
         if (gamepad.buttonSouth.wasPressedThisFrame)
         {
             Jump();
@@ -96,6 +96,22 @@ public class PlayerController : MonoBehaviour
         {
             SetStickRotation();
             player.SetAimIndicatorPosition();
+        }
+    }
+
+    private void ManageVelocity()
+    {
+        if (IsGrounded())
+        {
+            if (rb.velocity.x > 0)
+            {
+                rb.velocity = new Vector2 (Mathf.Clamp(rb.velocity.x - Time.deltaTime * drag, 0, 100), rb.velocity.y);
+
+            }else if (rb.velocity.x < 0)
+            {
+
+                rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x + Time.deltaTime * drag, -100, 0), rb.velocity.y);
+            }
         }
     }
 

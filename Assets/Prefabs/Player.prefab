@@ -11497,6 +11497,7 @@ MonoBehaviour:
   charging: 0
   aimAngle: {x: 0, y: 0}
   moveSpeed: 5000
+  drag: 20
   maxMoveSpeed: 10
   jumpForce: 10
   maxJumpSpeed: 10

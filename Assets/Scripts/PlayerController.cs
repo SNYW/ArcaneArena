@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Player player;
     public bool aiming;
     public bool charging;
+    public bool grounded;
     public Vector2 aimAngle;
     private Gamepad gamepad;
 
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        grounded = IsGrounded();
         if (gamepad.buttonSouth.wasPressedThisFrame)
         {
             Jump();
@@ -152,8 +154,8 @@ public class PlayerController : MonoBehaviour
 
         Vector2 bottomRightPoint = transform.position;
         bottomRightPoint.x += col.bounds.extents.x;
-        bottomRightPoint.y -= col.bounds.extents.y+0.1f;
-        return Physics.OverlapBox(transform.position, col.bounds.extents, Quaternion.identity, ground).Length > 0;
+        bottomRightPoint.y -= col.bounds.extents.y;
+        return Physics.OverlapBox(col.bounds.center, col.bounds.extents, Quaternion.identity, ground).Length > 0;
     }
 
     private void Move()
@@ -167,7 +169,9 @@ public class PlayerController : MonoBehaviour
             transform.position = currentPosition;
         }
 
-        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxMoveSpeed, maxMoveSpeed), rb.velocity.y);
+        rb.velocity = new Vector2(
+            Mathf.Clamp(rb.velocity.x, -maxMoveSpeed, maxMoveSpeed), 
+            Mathf.Clamp(rb.velocity.y, -100, maxJumpSpeed));
     }
 
     public Gamepad GetGamepad()

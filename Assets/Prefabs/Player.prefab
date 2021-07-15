@@ -5151,7 +5151,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -5911,7 +5911,7 @@ GameObject:
   - component: {fileID: 5718959871061127525}
   - component: {fileID: 410318776937786223}
   - component: {fileID: 5162639728352936530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mage Sleeve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11612,8 +11612,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.21, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.3655758, y: 1.21, z: 0}
+  m_Center: {x: -0.010439396, y: 0, z: 0}
 --- !u!1 &9066039052373833450
 GameObject:
   m_ObjectHideFlags: 0

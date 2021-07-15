@@ -5,6 +5,7 @@ public class CameraFollower : MonoBehaviour
 {
     public GameObject pl1, pl2;
     public float minZpos;
+    public float yOffset;
     public float distanceZoomFactor;
     public float zoomBoost;
     public float currentDistance;
@@ -34,6 +35,6 @@ public class CameraFollower : MonoBehaviour
     private Vector3 SetCameraZoom()
     {
         float zpos = Mathf.Clamp(-currentDistance * distanceZoomFactor + zoomBoost, minZpos, 3);
-        return new Vector3(transform.position.x, transform.position.y, zpos);
+        return new Vector3(transform.position.x, transform.position.y+yOffset, zpos);
     }
 }

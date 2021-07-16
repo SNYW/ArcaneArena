@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PixelWood
+  m_Name: TorchWood
   m_Shader: {fileID: -6465566751694194690, guid: 52723bcb4ecbfb14ea5390a6a702e1fb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -36,8 +36,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9384bb15deb149b5910e0e9a4d95310f: 89.71
-    - Vector1_d75e7b11fe7341779c9ca996a453192b: 34.5
+    - Vector1_9384bb15deb149b5910e0e9a4d95310f: 176
+    - Vector1_d75e7b11fe7341779c9ca996a453192b: 73.7
     m_Colors:
-    - Color_b4833a5b51074b0ba6f5b93074d38f9b: {r: 1, g: 0.5803922, b: 0, a: 1}
+    - Color_b4833a5b51074b0ba6f5b93074d38f9b: {r: 0.4056604, g: 0.28602585, b: 0.12055002, a: 1}
   m_BuildTextureStacks: []

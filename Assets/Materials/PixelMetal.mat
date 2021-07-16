@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PixelWood
+  m_Name: PixelMetal
   m_Shader: {fileID: -6465566751694194690, guid: 52723bcb4ecbfb14ea5390a6a702e1fb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -19,10 +19,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture:
-        m_Texture: {fileID: 2800000, guid: 233010faf5446cb4398699e4b85d3d40, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -36,8 +32,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9384bb15deb149b5910e0e9a4d95310f: 89.71
-    - Vector1_d75e7b11fe7341779c9ca996a453192b: 34.5
+    - Vector1_9384bb15deb149b5910e0e9a4d95310f: 98.8
+    - Vector1_d75e7b11fe7341779c9ca996a453192b: 33.4
     m_Colors:
-    - Color_b4833a5b51074b0ba6f5b93074d38f9b: {r: 1, g: 0.5803922, b: 0, a: 1}
+    - Color_b4833a5b51074b0ba6f5b93074d38f9b: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 0}
   m_BuildTextureStacks: []

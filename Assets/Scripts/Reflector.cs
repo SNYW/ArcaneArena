@@ -27,7 +27,6 @@ public class Reflector : MonoBehaviour
     public bool charged;
     public bool shieldActive;
     public bool shieldBroken;
-
     void Start()
     {
         currentShield = shieldMaximum;
@@ -41,7 +40,8 @@ public class Reflector : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         sprite.material = Instantiate(sprite.material);
         spriteMaterial = sprite.material;
-        spriteMaterial.SetFloat("DissolveAmount", 0);
+        spriteMaterial.SetColor("_Color", sprite.color);
+        sprite.material.SetFloat("DissolveAmount", 0);
     }
 
     private void Update()

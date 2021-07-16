@@ -34,7 +34,7 @@ public class CameraFollower : MonoBehaviour
 
     private Vector3 SetCameraZoom()
     {
-        float zpos = Mathf.Clamp(-currentDistance * distanceZoomFactor + zoomBoost, minZpos, 3);
+        float zpos = Mathf.Clamp(-currentDistance * distanceZoomFactor + zoomBoost, minZpos, 2);
         return new Vector3(transform.position.x, transform.position.y+yOffset, zpos);
     }
 }

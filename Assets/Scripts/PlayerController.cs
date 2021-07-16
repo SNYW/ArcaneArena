@@ -54,13 +54,16 @@ public class PlayerController : MonoBehaviour
         }
         else if (gamepad.leftTrigger.wasPressedThisFrame)
         {
-            if(player.shotPower < player.maxShotPower)
+            if (!aiming)
             {
-                StartCharging();
-            }
-            else
-            {
-                charging = false;
+                if (player.shotPower < player.maxShotPower)
+                {
+                    StartCharging();
+                }
+                else
+                {
+                    charging = false;
+                }
             }
         }
         else if (gamepad.leftTrigger.wasReleasedThisFrame)
@@ -69,11 +72,17 @@ public class PlayerController : MonoBehaviour
         }
         else if (gamepad.rightTrigger.wasPressedThisFrame)
         {
-            StartAim();
+            if (!charging)
+            {
+                StartAim();
+            }
         }
         else if (gamepad.rightTrigger.wasReleasedThisFrame)
         {
-            StopAim();
+            if (!charging)
+            {
+                StopAim();
+            }
         }
 
         if(gamepad.rightShoulder.wasPressedThisFrame)

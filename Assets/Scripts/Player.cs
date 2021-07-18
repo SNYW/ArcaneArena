@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject currentShot;
 
     public int playerTeam;
+    public int stock;
     public float throwPower;
 
     public float shotPower;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        stock = 5;
         effectManager = GetComponent<EffectManager>();
         effectManager.StopChargingEffect();
     }
@@ -123,6 +125,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        stock--;
         var deathobj = Instantiate(DeathPrefab, transform.position, Quaternion.identity).GetComponent<DeathObject>();
         deathobj.Initialize(teamColor);
         GameManager.gm.playerDeath(gameObject);

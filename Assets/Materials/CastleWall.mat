@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8831695308515970453
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 11
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -20,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DeathMat
-  m_Shader: {fileID: -6465566751694194690, guid: 785c88a26eca2024ab6a79286bd56c04, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _DISABLE_SSR_TRANSPARENT
+  m_Name: CastleWall
+  m_Shader: {fileID: -6465566751694194690, guid: 07e5090ef9996b54889a5908e58050be, type: 3}
+  m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -38,8 +25,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d4516a64714c1b941884b4c22dd9672c, type: 3}
+    - Texture2D_378a618f3382469aa9a2822e949ef42f:
+        m_Texture: {fileID: 2800000, guid: f491830f97705f347a4ec13a33b442d0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,9 +42,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - DissolveAmount: 1
-    - Vector1_953fa66a4e1f41f4a26cecfe7963f88e: 0
-    - Vector1_cda60cd7bbd8493184052e7140e09224: 11.91
+    - Vector1_9384bb15deb149b5910e0e9a4d95310f: 621.6
+    - Vector1_d75e7b11fe7341779c9ca996a453192b: 183.5
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0
@@ -106,6 +92,21 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_b4833a5b51074b0ba6f5b93074d38f9b: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0}
+    - Vector2_1b3375443a1341fd89aef64e9f2ffcdb: {r: 6, g: 6, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &7435797019148028514
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 11

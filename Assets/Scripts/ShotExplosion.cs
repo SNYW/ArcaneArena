@@ -40,7 +40,7 @@ public class ShotExplosion : MonoBehaviour
         }
     }
 
-    public void InitExplosion(int radius, Gradient teamColour, int teamIndex)
+    public void InitExplosion(float radius, Gradient teamColour, int teamIndex)
     {
         effect = GetComponent<VisualEffect>();
         col = GetComponent<CircleCollider2D>();

@@ -25,5 +25,6 @@ public class DeathObject : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.material = Instantiate(sr.material);
         sr.color = col;
+        sr.material.SetColor("_Color", col);
     }
 }

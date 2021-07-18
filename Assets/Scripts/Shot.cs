@@ -7,7 +7,7 @@ public class Shot : MonoBehaviour
     private CircleCollider2D col;
     public int teamIndex;
     public GameObject explosionPrefab;
-    private int explosionRadius;
+    public float explosionRadius;
     private Gradient teamColour;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class Shot : MonoBehaviour
         shotEffect.SetFloat("Amount", amount);
         shotEffect.SetGradient("Team Colour", teamColour);
         this.teamColour = teamColour;
-        explosionRadius = expRadius;
+        explosionRadius = Mathf.Clamp(expRadius, 1, 100);
         col.radius = isr;
         col.enabled = false;
     }

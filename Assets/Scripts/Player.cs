@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject aimIndicator;
 
     private EffectManager effectManager;
+    public PlayerHealthDisplay playerHealthDisplay;
 
     public GameObject DeathPrefab;
     public Color teamColor;
@@ -129,6 +130,7 @@ public class Player : MonoBehaviour
         var deathobj = Instantiate(DeathPrefab, transform.position, Quaternion.identity).GetComponent<DeathObject>();
         deathobj.Initialize(teamColor);
         GameManager.gm.playerDeath(gameObject);
+        playerHealthDisplay.ManageStockImages(stock);
     }
 
 }

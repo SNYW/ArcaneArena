@@ -46,65 +46,68 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
-        ManageVelocity();
-        if (gamepad.buttonSouth.wasPressedThisFrame)
+        if (GameManager.gm.playing)
         {
-            Jump();
-        }
-        else if (gamepad.leftTrigger.wasPressedThisFrame)
-        {
-            if (!aiming)
+            Move();
+            ManageVelocity();
+            if (gamepad.buttonSouth.wasPressedThisFrame)
             {
-                if (player.shotPower < player.maxShotPower)
+                Jump();
+            }
+            else if (gamepad.leftTrigger.wasPressedThisFrame)
+            {
+                if (!aiming)
                 {
-                    StartCharging();
+                    if (player.shotPower < player.maxShotPower)
+                    {
+                        StartCharging();
+                    }
+                    else
+                    {
+                        charging = false;
+                    }
                 }
-                else
+            }
+            else if (gamepad.leftTrigger.wasReleasedThisFrame)
+            {
+                StopCharging();
+            }
+            else if (gamepad.rightTrigger.wasPressedThisFrame)
+            {
+                if (!charging)
                 {
-                    charging = false;
+                    StartAim();
                 }
             }
-        }
-        else if (gamepad.leftTrigger.wasReleasedThisFrame)
-        {
-            StopCharging();
-        }
-        else if (gamepad.rightTrigger.wasPressedThisFrame)
-        {
-            if (!charging)
+            else if (gamepad.rightTrigger.wasReleasedThisFrame)
             {
-                StartAim();
+                if (!charging)
+                {
+                    StopAim();
+                }
             }
-        }
-        else if (gamepad.rightTrigger.wasReleasedThisFrame)
-        {
-            if (!charging)
-            {
-                StopAim();
-            }
-        }
 
-        if(gamepad.rightShoulder.wasPressedThisFrame)
-        {
-            if(!aiming && !charging)
+            if (gamepad.rightShoulder.wasPressedThisFrame)
             {
-                player.ActivateShield();
+                if (!aiming && !charging)
+                {
+                    player.ActivateShield();
+                }
             }
-        }
-        else if(gamepad.rightShoulder.wasReleasedThisFrame)
-        {
-            player.DeactivateShield();
-        }
+            else if (gamepad.rightShoulder.wasReleasedThisFrame)
+            {
+                player.DeactivateShield();
+            }
 
-        if (charging)
-        {
-            player.IncrementShotPower();
-        }
-        if (aiming)
-        {
-            SetStickRotation();
-            player.SetAimIndicatorPosition();
+            if (charging)
+            {
+                player.IncrementShotPower();
+            }
+            if (aiming)
+            {
+                SetStickRotation();
+                player.SetAimIndicatorPosition();
+            }
         }
     }
 

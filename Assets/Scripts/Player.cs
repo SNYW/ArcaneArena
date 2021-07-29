@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public int playerTeam;
     public int stock;
+    public int maxStock;
     public float throwPower;
 
     public float shotPower;
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        stock = 5;
+        stock = maxStock;
         effectManager = GetComponent<EffectManager>();
         effectManager.StopChargingEffect();
     }
@@ -127,10 +128,24 @@ public class Player : MonoBehaviour
     public void Die()
     {
         stock--;
-        var deathobj = Instantiate(DeathPrefab, transform.position, Quaternion.identity).GetComponent<DeathObject>();
-        deathobj.Initialize(teamColor);
-        GameManager.gm.playerDeath(gameObject);
         playerHealthDisplay.ManageStockImages(stock);
+
+        if (stock > 0)
+        {
+            var deathobj = Instantiate(DeathPrefab, transform.position, Quaternion.identity).GetComponent<DeathObject>();
+            deathobj.Initialize(teamColor);
+            GameManager.gm.playerDeath(gameObject);
+        }
+        else
+        {
+            GameManager.gm.WinGame(this);
+        }
+       
+    }
+
+    public void ResetPlayer()
+    {
+        stock = maxStock;
     }
 
 }

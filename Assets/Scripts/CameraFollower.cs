@@ -21,8 +21,15 @@ public class CameraFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = GetCameraPosition();
-        transform.position = SetCameraZoom();
+        if(GameManager.gm.winningPlayer == null)
+        {
+            transform.position = GetCameraPosition();
+            transform.position = SetCameraZoom();
+        }
+        else
+        {
+            transform.position = GameManager.gm.winningPlayer.transform.position;
+        }
     }
 
     public Vector3 GetCameraPosition()

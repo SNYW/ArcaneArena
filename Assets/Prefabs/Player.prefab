@@ -11595,12 +11595,14 @@ MonoBehaviour:
   currentShot: {fileID: 0}
   playerTeam: 1
   stock: 0
+  maxStock: 5
   throwPower: 20
   shotPower: 0
   maxShotPower: 10
   shotGainRate: 2
   reflector: {fileID: 4236761820106938499}
   aimIndicator: {fileID: 9066039052373833450}
+  playerHealthDisplay: {fileID: 0}
   DeathPrefab: {fileID: 5468298580056144633, guid: 4b32c2ecf2d014249ab615e051eb3d0f, type: 3}
   teamColor: {r: 0, g: 0.7035146, b: 1, a: 1}
 --- !u!114 &9066039052331764520

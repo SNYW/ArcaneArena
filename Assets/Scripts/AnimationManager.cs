@@ -21,13 +21,16 @@ public class AnimationManager : MonoBehaviour
         }
         else
         {
-            if(playerController.GetGamepad().leftStick.ReadValue().x != 0 || playerController.aiming)
+            if(playerController != null)
             {
-                animator.SetFloat("moveVal", playerController.GetGamepad().leftStick.ReadValue().x);
-            }
-            else
-            {
-                animator.SetFloat("moveVal", GetComponent<Rigidbody>().velocity.x);
+                if (playerController.GetGamepad().leftStick.ReadValue().x != 0 || playerController.aiming)
+                {
+                    animator.SetFloat("moveVal", playerController.GetGamepad().leftStick.ReadValue().x);
+                }
+                else
+                {
+                    animator.SetFloat("moveVal", GetComponent<Rigidbody>().velocity.x);
+                }
             }
         }
         animator.SetBool("Grounded", playerController.IsGrounded());

@@ -109,6 +109,10 @@ public class PlayerController : MonoBehaviour
                 player.SetAimIndicatorPosition();
             }
         }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     private void ManageVelocity()

@@ -24,14 +24,14 @@ public class Shot : MonoBehaviour
         shotEffect.SetFloat("Amount", amount);
         shotEffect.SetGradient("Team Colour", teamColour);
         this.teamColour = teamColour;
-        explosionRadius = Mathf.Clamp(expRadius, 1, 100);
+        explosionRadius = 2;
         col.radius = isr;
         col.enabled = false;
     }
 
     public void Shoot(Vector3 angle, int teamIndex)
     {
-        Invoke("EnableCollider", 0.03f);
+        Invoke("EnableCollider", 0.05f);
         transform.up = angle;
         this.teamIndex = teamIndex;
     }

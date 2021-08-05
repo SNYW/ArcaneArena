@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             {
                 Jump();
             }
-            else if (gamepad.leftTrigger.wasPressedThisFrame)
+            /*else if (gamepad.leftTrigger.wasPressedThisFrame)
             {
                 if (!aiming)
                 {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             else if (gamepad.leftTrigger.wasReleasedThisFrame)
             {
                 StopCharging();
-            }
+            }*/
             else if (gamepad.rightTrigger.wasPressedThisFrame)
             {
                 if (!charging)
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
             if (gamepad.rightShoulder.wasPressedThisFrame)
             {
-                if (!aiming && !charging)
+                if (!charging)
                 {
                     player.ActivateShield();
                 }

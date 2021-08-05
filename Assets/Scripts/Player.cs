@@ -58,11 +58,6 @@ public class Player : MonoBehaviour
             shot.GetComponent<Rigidbody2D>().AddForce(-dir * throwPower, ForceMode2D.Impulse);
             shot.Shoot(angle, playerTeam);
         }
-        shotPower = 0;
-        effectManager.ce_index = 0;
-        effectManager.chargePower = 0;
-        effectManager.UpdateChargingEffect(0);
-        effectManager.StopChargingEffect();
     }
 
     public void StartAiming()
@@ -72,8 +67,8 @@ public class Player : MonoBehaviour
             currentShot = Instantiate(shotPrefab);
             Shot shot = currentShot.GetComponent<Shot>();
             shot.InitiateShot(
-                effectManager.chargingEffect.GetFloat("InnerSphereRadius"),
-                effectManager.chargingEffect.GetFloat("Amount"),
+                0.4f,
+                100,
                 effectManager.teamColour,
                 effectManager.ce_index);
         }

@@ -16,6 +16,7 @@ public class RespawnPoint : MonoBehaviour
             if (spawned)
             {
                 playerToRespawn.transform.position = transform.position;
+                playerToRespawn.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 playerToRespawn.SetActive(true);
                 playerToRespawn = null;
             }

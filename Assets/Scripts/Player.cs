@@ -54,8 +54,8 @@ public class Player : MonoBehaviour
             Shot shot = currentShot.GetComponent<Shot>();
             currentShot = null;
             var dir = transform.position - aimIndicator.GetComponent<AimIndicator>().indicator.transform.position;
-            shot.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            shot.GetComponent<Rigidbody2D>().AddForce(-dir * throwPower, ForceMode2D.Impulse);
+            shot.GetComponent<Rigidbody>().velocity = Vector2.zero;
+            shot.GetComponent<Rigidbody>().AddForce(-dir * throwPower, ForceMode.Impulse);
             shot.Shoot(angle, playerTeam);
         }
     }
@@ -140,6 +140,7 @@ public class Player : MonoBehaviour
     public void ResetPlayer()
     {
         stock = maxStock;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
 }

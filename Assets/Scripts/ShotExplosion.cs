@@ -7,7 +7,7 @@ public class ShotExplosion : MonoBehaviour
 {
 
     private VisualEffect effect;
-    private CircleCollider2D col;
+    private SphereCollider col;
     public LayerMask hitMask;
     public int teamIndex;
 
@@ -17,10 +17,10 @@ public class ShotExplosion : MonoBehaviour
     {
         if (!hitFlag)
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, col.radius, hitMask);
+            Collider[] hits = Physics.OverlapSphere(transform.position, col.radius, hitMask);
             if (hits.Length > 0)
             {
-                foreach (Collider2D col in hits)
+                foreach(Collider col in hits)
                 {
                     Player player = col.gameObject.transform.parent.transform.parent.GetComponent<Player>();
                     if (player != null && player.playerTeam != teamIndex)
@@ -43,7 +43,7 @@ public class ShotExplosion : MonoBehaviour
     public void InitExplosion(float radius, Gradient teamColour, int teamIndex)
     {
         effect = GetComponent<VisualEffect>();
-        col = GetComponent<CircleCollider2D>();
+        col = GetComponent<SphereCollider>();
         col.radius = radius;
         effect.SetFloat("Radius", radius);
         effect.SetGradient("TeamColour", teamColour);

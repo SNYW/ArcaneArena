@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5213637101354432560}
   - component: {fileID: 5213637101354432561}
   - component: {fileID: 5213637101354432566}
-  - component: {fileID: 5213637101354432563}
   - component: {fileID: 7401654104210413904}
+  - component: {fileID: -4331581374136192087}
   m_Layer: 11
   m_Name: BallExplosion
   m_TagString: Untagged
@@ -150,22 +150,6 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!58 &5213637101354432563
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5213637101354432567}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!114 &7401654104210413904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +166,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   teamIndex: 0
+--- !u!135 &-4331581374136192087
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213637101354432567}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.9
+  m_Center: {x: 0, y: 0, z: 0}

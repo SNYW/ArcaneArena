@@ -4,15 +4,17 @@ using UnityEngine.VFX;
 public class Shot : MonoBehaviour
 {
     private VisualEffect shotEffect;
-    private CircleCollider2D col;
+    private SphereCollider col;
     public int teamIndex;
     public GameObject explosionPrefab;
     public float explosionRadius;
     private Gradient teamColour;
+    private int bounces;
 
     private void Awake()
     {
-        col = GetComponent<CircleCollider2D>();
+        bounces = 2;
+        col = GetComponent<SphereCollider>();
         shotEffect = GetComponent<VisualEffect>();
 
         col.enabled = false;
@@ -41,9 +43,10 @@ public class Shot : MonoBehaviour
         col.enabled = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Player player = collision.gameObject.transform.parent.transform.GetComponentInParent<Player>();
+        Debug.Log(collision.gameObject.name);
+        Player player = collision.gameObject.GetComponent<Player>();
         if (player != null && player.playerTeam != teamIndex)
         {
             if (player.reflector.shieldActive)
@@ -55,11 +58,25 @@ public class Shot : MonoBehaviour
             }
             else
             {
-                var exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                exp.GetComponent<ShotExplosion>().InitExplosion(explosionRadius, teamColour, teamIndex);
-                Destroy(gameObject);
+                Explode();
             }
-            
+
         }
+        else
+        {
+            bounces--;
+            if(bounces <= 0)
+            {
+                Explode();
+            }
+        }
+
+    }
+
+    private void Explode()
+    {
+        var exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        exp.GetComponent<ShotExplosion>().InitExplosion(explosionRadius, teamColour, teamIndex);
+        Destroy(gameObject);
     }
 }

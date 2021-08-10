@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 113722822}
-  - component: {fileID: 113722821}
+  - component: {fileID: 885650020764658532}
   m_Layer: 10
   m_Name: HitCollider
   m_TagString: Untagged
@@ -31,22 +31,20 @@ Transform:
   m_Father: {fileID: 2930763409349761712}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &113722821
-CapsuleCollider2D:
+--- !u!136 &885650020764658532
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113722820}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.009327173, y: -0.003213644}
-  m_Size: {x: 0.36565638, y: 1.2120976}
-  m_Direction: 0
+  m_Enabled: 1
+  m_Radius: 0.193025
+  m_Height: 1.1698755
+  m_Direction: 1
+  m_Center: {x: -0.035149813, y: 0.043976605, z: 0}
 --- !u!1 &354162707
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,9 +5388,9 @@ GameObject:
   - component: {fileID: 6680628431828908765}
   - component: {fileID: 1104510641948621853}
   - component: {fileID: 4236761820106938499}
-  - component: {fileID: 3544463642236504989}
   - component: {fileID: 1325347135}
   - component: {fileID: 1325347134}
+  - component: {fileID: 3485460857453614442}
   m_Layer: 9
   m_Name: Reflector
   m_TagString: Untagged
@@ -5491,22 +5489,6 @@ MonoBehaviour:
   charged: 0
   shieldActive: 0
   shieldBroken: 0
---- !u!70 &3544463642236504989
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4224306938700431235}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0004933136, y: 0.0008789131}
-  m_Size: {x: 0.98895365, y: 1.0043378}
-  m_Direction: 0
 --- !u!2083052967 &1325347135
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -5596,6 +5578,20 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3485460857453614442
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224306938700431235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4736213996171144100
 GameObject:
   m_ObjectHideFlags: 0
@@ -11602,6 +11598,7 @@ MonoBehaviour:
   shotGainRate: 2
   reflector: {fileID: 4236761820106938499}
   aimIndicator: {fileID: 9066039052373833450}
+  effectManager: {fileID: 0}
   playerHealthDisplay: {fileID: 0}
   DeathPrefab: {fileID: 5468298580056144633, guid: 4b32c2ecf2d014249ab615e051eb3d0f, type: 3}
   teamColor: {r: 0, g: 0.7035146, b: 1, a: 1}
@@ -11735,7 +11732,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9066039052331764516}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7d54905358d0f2d448daca892b4a76fb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

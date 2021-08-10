@@ -11593,6 +11593,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066039052331764522, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
+      propertyPath: throwPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066039052331764522, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: playerHealthDisplay
       value: 
       objectReference: {fileID: 1099987385}

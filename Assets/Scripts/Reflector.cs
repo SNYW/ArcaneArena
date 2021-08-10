@@ -3,7 +3,7 @@ using UnityEngine.VFX;
 
 public class Reflector : MonoBehaviour
 {
-    private Collider2D col;
+    private Collider col;
     private VisualEffect effect;
     public int teamIndex;
     private SpriteRenderer sprite;
@@ -33,7 +33,7 @@ public class Reflector : MonoBehaviour
         maxChargeAmount = 6.3f;
         shieldBroken = false;
         currentChargeAmount = maxChargeAmount;
-        col = GetComponent<Collider2D>();
+        col = GetComponent<Collider>();
         col.enabled = false;
         effect = GetComponent<VisualEffect>();
         shieldActive = false;

@@ -81,17 +81,16 @@ public class Reflector : MonoBehaviour
 
     private void ManageShield()
     {
-            if(!shieldActive)
-            {
+        if (!shieldActive)
+        {
             currentShield = Mathf.Clamp(currentShield + Time.deltaTime * shieldGainFactor, 0, shieldMaximum);
             spriteMaterial.SetFloat(
                  "DissolveAmount",
-                 Mathf.Clamp(spriteMaterial.GetFloat("DissolveAmount") - Time.deltaTime * dissolveRate/2, 0, 1)
+                 Mathf.Clamp(spriteMaterial.GetFloat("DissolveAmount") - Time.deltaTime * dissolveRate / 2, 0, 1)
                  );
-            }
-            else
-            {
-
+        }
+        else
+        {
             if (currentShield <= 0)
             {
                 shieldBroken = true;
@@ -99,7 +98,7 @@ public class Reflector : MonoBehaviour
             }
             else
             {
-                currentShield = Mathf.Clamp(currentShield - Time.deltaTime * shieldDrainFactor, 0, shieldMaximum);
+               // currentShield = Mathf.Clamp(currentShield - Time.deltaTime * shieldDrainFactor, 0, shieldMaximum);
                 spriteMaterial.SetFloat(
                     "DissolveAmount",
                     Mathf.Clamp(spriteMaterial.GetFloat("DissolveAmount") + Time.deltaTime * dissolveRate, 0, 1)

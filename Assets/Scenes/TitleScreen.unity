@@ -561,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5619412674331286338, guid: fb8a9b98ac89d9043acab48c2a388d5c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.62
+      value: 11.529
       objectReference: {fileID: 0}
     - target: {fileID: 5619412674331286338, guid: fb8a9b98ac89d9043acab48c2a388d5c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11096,7 +11096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2437148127564303902, guid: 31a6be025a4d1d941a14e3212a0cfdfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.45
+      value: 6.03
       objectReference: {fileID: 0}
     - target: {fileID: 2437148127564303902, guid: 31a6be025a4d1d941a14e3212a0cfdfd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11104,7 +11104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2437148127564303902, guid: 31a6be025a4d1d941a14e3212a0cfdfd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.62
+      value: 11.54
       objectReference: {fileID: 0}
     - target: {fileID: 2437148127564303902, guid: 31a6be025a4d1d941a14e3212a0cfdfd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15971,6 +15971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introTimeline: {fileID: 0}
   mainMenuFadeOutTimeline: {fileID: 0}
+  resetGameTimeline: {fileID: 0}
 --- !u!4 &1040815016
 Transform:
   m_ObjectHideFlags: 0

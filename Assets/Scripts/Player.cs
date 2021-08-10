@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     public GameObject aimIndicator;
 
-    private EffectManager effectManager;
+    public EffectManager effectManager;
     public PlayerHealthDisplay playerHealthDisplay;
 
     public GameObject DeathPrefab;
@@ -69,8 +69,7 @@ public class Player : MonoBehaviour
             shot.InitiateShot(
                 0.4f,
                 100,
-                effectManager.teamColour,
-                effectManager.ce_index);
+                effectManager.teamColour);
         }
     }
 

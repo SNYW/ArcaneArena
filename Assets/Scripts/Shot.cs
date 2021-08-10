@@ -18,7 +18,7 @@ public class Shot : MonoBehaviour
         col.enabled = false;
     }
 
-    public void InitiateShot(float isr, float amount, Gradient teamColour, int expRadius)
+    public void InitiateShot(float isr, float amount, Gradient teamColour)
     {
         shotEffect.SetFloat("InnerSphereRadius", isr);
         shotEffect.SetFloat("Amount", amount);
@@ -43,25 +43,23 @@ public class Shot : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
+        Player player = collision.gameObject.transform.parent.transform.GetComponentInParent<Player>();
         if (player != null && player.playerTeam != teamIndex)
         {
             if (player.reflector.shieldActive)
             {
                 player.HitShield(explosionRadius*20);
+                teamIndex = player.playerTeam;
+                InitiateShot(0.4f, 100, player.effectManager.teamColour);
+                EnableCollider();
             }
             else
             {
-                player.Die();
+                var exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                exp.GetComponent<ShotExplosion>().InitExplosion(explosionRadius, teamColour, teamIndex);
+                Destroy(gameObject);
             }
             
         }
-        if(explosionRadius > 0)
-        {
-            var exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            exp.GetComponent<ShotExplosion>().InitExplosion(explosionRadius, teamColour, teamIndex);
-        }
-
-        Destroy(gameObject);
     }
 }

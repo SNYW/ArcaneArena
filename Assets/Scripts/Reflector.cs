@@ -98,7 +98,7 @@ public class Reflector : MonoBehaviour
             }
             else
             {
-               // currentShield = Mathf.Clamp(currentShield - Time.deltaTime * shieldDrainFactor, 0, shieldMaximum);
+                currentShield = Mathf.Clamp(currentShield - Time.deltaTime * shieldDrainFactor, 0, shieldMaximum);
                 spriteMaterial.SetFloat(
                     "DissolveAmount",
                     Mathf.Clamp(spriteMaterial.GetFloat("DissolveAmount") + Time.deltaTime * dissolveRate, 0, 1)

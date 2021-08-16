@@ -21,7 +21,7 @@ public class AnimationManager : MonoBehaviour
         }
         else
         {
-            if(playerController != null)
+            if(playerController != null && playerController.GetGamepad() != null)
             {
                 if (playerController.GetGamepad().leftStick.ReadValue().x != 0 || playerController.aiming)
                 {

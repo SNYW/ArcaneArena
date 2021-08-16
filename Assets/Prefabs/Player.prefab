@@ -11596,6 +11596,7 @@ MonoBehaviour:
   shotPower: 0
   maxShotPower: 10
   shotGainRate: 2
+  shotCooldown: 0
   reflector: {fileID: 4236761820106938499}
   aimIndicator: {fileID: 9066039052373833450}
   effectManager: {fileID: 0}
@@ -11736,8 +11737,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3655758, y: 1.21, z: 0}
-  m_Center: {x: -0.010439396, y: 0, z: 0}
+  m_Size: {x: 0.32357073, y: 1.0419799, z: 0}
+  m_Center: {x: -0.03874719, y: -0.08401005, z: 0}
 --- !u!1 &9066039052373833450
 GameObject:
   m_ObjectHideFlags: 0

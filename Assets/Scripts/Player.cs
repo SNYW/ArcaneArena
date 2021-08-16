@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public float shotPower;
     public float maxShotPower;
     public float shotGainRate;
+    public float shotCooldown;
+    private float currentShotCooldown;
 
     public Reflector reflector;
 
@@ -32,6 +34,11 @@ public class Player : MonoBehaviour
         stock = maxStock;
         effectManager = GetComponent<EffectManager>();
         effectManager.StopChargingEffect();
+        currentShotCooldown = shotCooldown;
+    }
+    private void Update()
+    {
+        currentShotCooldown = currentShotCooldown > 0 ? currentShotCooldown -= Time.deltaTime : currentShotCooldown;
     }
 
     public void ActivateShield()
@@ -62,7 +69,7 @@ public class Player : MonoBehaviour
 
     public void StartAiming()
     { 
-        if(currentShot == null)
+        if(currentShot == null && currentShotCooldown <= 0)
         {
             currentShot = Instantiate(shotPrefab);
             Shot shot = currentShot.GetComponent<Shot>();
@@ -70,6 +77,7 @@ public class Player : MonoBehaviour
                 0.4f,
                 100,
                 effectManager.teamColour);
+            currentShotCooldown = shotCooldown;
         }
     }
 

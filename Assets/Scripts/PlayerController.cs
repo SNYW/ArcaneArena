@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Player>();
         aiming = false;
         charging = false;
-        gamepad = Gamepad.all.ToArray()[playerIndex];
+        gamepad = playerIndex <= Gamepad.all.ToArray().Length -1 ? Gamepad.all.ToArray()[playerIndex] : null;
     }
 
     private void OnEnable()
@@ -50,54 +50,58 @@ public class PlayerController : MonoBehaviour
         {
             Move();
             ManageVelocity();
-            if (gamepad.buttonSouth.wasPressedThisFrame)
+            if(gamepad != null)
             {
-                Jump();
-            }
-            /*else if (gamepad.leftTrigger.wasPressedThisFrame)
-            {
-                if (!aiming)
+                if (gamepad.buttonSouth.wasPressedThisFrame)
                 {
-                    if (player.shotPower < player.maxShotPower)
+                    Jump();
+                }
+                /*else if (gamepad.leftTrigger.wasPressedThisFrame)
+                {
+                    if (!aiming)
                     {
-                        StartCharging();
+                        if (player.shotPower < player.maxShotPower)
+                        {
+                            StartCharging();
+                        }
+                        else
+                        {
+                            charging = false;
+                        }
                     }
-                    else
+                }
+                else if (gamepad.leftTrigger.wasReleasedThisFrame)
+                {
+                    StopCharging();
+                }*/
+                else if (gamepad.rightTrigger.wasPressedThisFrame)
+                {
+                    if (!charging)
                     {
-                        charging = false;
+                        StartAim();
                     }
                 }
-            }
-            else if (gamepad.leftTrigger.wasReleasedThisFrame)
-            {
-                StopCharging();
-            }*/
-            else if (gamepad.rightTrigger.wasPressedThisFrame)
-            {
-                if (!charging)
+                else if (gamepad.rightTrigger.wasReleasedThisFrame)
                 {
-                    StartAim();
+                    if (!charging)
+                    {
+                        StopAim();
+                    }
                 }
-            }
-            else if (gamepad.rightTrigger.wasReleasedThisFrame)
-            {
-                if (!charging)
-                {
-                    StopAim();
-                }
-            }
 
-            if (gamepad.rightShoulder.wasPressedThisFrame)
-            {
-                if (!charging)
+                if (gamepad.rightShoulder.wasPressedThisFrame)
                 {
-                    player.ActivateShield();
+                    if (!charging)
+                    {
+                        player.ActivateShield();
+                    }
+                }
+                else if (gamepad.rightShoulder.wasReleasedThisFrame)
+                {
+                    player.DeactivateShield();
                 }
             }
-            else if (gamepad.rightShoulder.wasReleasedThisFrame)
-            {
-                player.DeactivateShield();
-            }
+           
 
             if (charging)
             {
@@ -192,7 +196,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (!charging)
+        if (!charging && gamepad != null)
         {
             moveInput = gamepad.leftStick.ReadValue();
             if (aiming) moveInput /= 100;

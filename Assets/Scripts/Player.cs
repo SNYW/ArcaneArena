@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private float currentShotCooldown;
     public AudioClip aimSound;
     public AudioClip shotSound;
+    public AudioClip deathSound;
     private AudioSource sounds;
 
     public Reflector reflector;
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
     {
         if (currentShot != null)
         {
-            sounds.PlayOneShot(shotSound);
+            PlaySoundRandomPitch(shotSound);
             Shot shot = currentShot.GetComponent<Shot>();
             currentShot = null;
             var dir = transform.position - aimIndicator.GetComponent<AimIndicator>().indicator.transform.position;
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour
     { 
         if(currentShot == null && currentShotCooldown <= 0)
         {
-            sounds.PlayOneShot(aimSound);
+            PlaySoundRandomPitch(aimSound);
             currentShot = Instantiate(shotPrefab);
             Shot shot = currentShot.GetComponent<Shot>();
             shot.InitiateShot(
@@ -144,9 +145,10 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        PlaySoundRandomPitch(deathSound);
         stock--;
         playerHealthDisplay.ManageStockImages(stock);
-
+        
         if (stock > 0)
         {
             var deathobj = Instantiate(DeathPrefab, transform.position, Quaternion.identity).GetComponent<DeathObject>();
@@ -165,6 +167,12 @@ public class Player : MonoBehaviour
         stock = maxStock;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         playerHealthDisplay.ManageStockImages(stock);
+    }
+
+    private void PlaySoundRandomPitch(AudioClip sound)
+    {
+        sounds.pitch = Random.Range(0.8f, 1.2f);
+        sounds.PlayOneShot(sound);
     }
 
 }

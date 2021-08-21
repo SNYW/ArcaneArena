@@ -11599,14 +11599,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066039052331764522, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
-      propertyPath: throwPower
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066039052331764522, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
-      propertyPath: shotCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9066039052331764522, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: playerHealthDisplay
       value: 
       objectReference: {fileID: 1099987385}
@@ -14623,6 +14615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DynamicMusicSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 4941722942972751280, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4941722942972751281, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -14666,6 +14662,18 @@ PrefabInstance:
     - target: {fileID: 4941722942972751281, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941722942984623337, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: m_Volume
+      value: 0.816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941722943580964249, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: m_Volume
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941722944069305625, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: m_Volume
+      value: 0.935
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}

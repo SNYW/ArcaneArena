@@ -11600,6 +11600,7 @@ MonoBehaviour:
   shotCooldown: 0.5
   aimSound: {fileID: 8300000, guid: 684211708b8236d47b8b0c13f6e0961e, type: 3}
   shotSound: {fileID: 8300000, guid: f819f79c89162674c9908a4788182476, type: 3}
+  deathSound: {fileID: 8300000, guid: bf4c45e168cb1434b83d5a2392001372, type: 3}
   reflector: {fileID: 4236761820106938499}
   aimIndicator: {fileID: 9066039052373833450}
   effectManager: {fileID: 0}
@@ -11754,7 +11755,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.708
   m_Pitch: 1
   Loop: 0
   Mute: 0

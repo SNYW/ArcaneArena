@@ -33,6 +33,10 @@ public class RespawnPoint : MonoBehaviour
         this.spawnTime = spawnTime;
         spawned = false;
         playerToRespawn = player;
-        
+    }
+
+    public bool CanSpawn()
+    {
+        return playerToRespawn == null;
     }
 }

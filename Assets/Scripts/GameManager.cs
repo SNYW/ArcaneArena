@@ -46,7 +46,12 @@ public class GameManager : MonoBehaviour
     public void playerDeath(GameObject player)
     {
         player.SetActive(false);
-        var spawner = respawnPoints[Random.Range(0, respawnPoints.Length - 1)].GetComponent<RespawnPoint>();
+        var spawner = respawnPoints[Random.Range(0, respawnPoints.Length)].GetComponent<RespawnPoint>();
+        while (!spawner.CanSpawn())
+        {
+            spawner = respawnPoints[Random.Range(0, respawnPoints.Length)].GetComponent<RespawnPoint>();
+        }
+        
         spawner.TriggerRespawner(player, respawnTime);
     }
 

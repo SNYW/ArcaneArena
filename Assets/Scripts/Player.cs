@@ -17,12 +17,16 @@ public class Player : MonoBehaviour
     public float shotGainRate;
     public float shotCooldown;
     private float currentShotCooldown;
+    public AudioClip aimSound;
+    public AudioClip shotSound;
+    private AudioSource sounds;
 
     public Reflector reflector;
 
     public GameObject aimIndicator;
 
     public EffectManager effectManager;
+    private PlayerController playerController;
     public PlayerHealthDisplay playerHealthDisplay;
 
     public GameObject DeathPrefab;
@@ -31,6 +35,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        playerController = GetComponent<PlayerController>();
+        sounds = GetComponent<AudioSource>();
         stock = maxStock;
         effectManager = GetComponent<EffectManager>();
         effectManager.StopChargingEffect();
@@ -58,6 +64,7 @@ public class Player : MonoBehaviour
     {
         if (currentShot != null)
         {
+            sounds.PlayOneShot(shotSound);
             Shot shot = currentShot.GetComponent<Shot>();
             currentShot = null;
             var dir = transform.position - aimIndicator.GetComponent<AimIndicator>().indicator.transform.position;
@@ -71,6 +78,7 @@ public class Player : MonoBehaviour
     { 
         if(currentShot == null && currentShotCooldown <= 0)
         {
+            sounds.PlayOneShot(aimSound);
             currentShot = Instantiate(shotPrefab);
             Shot shot = currentShot.GetComponent<Shot>();
             shot.InitiateShot(
@@ -78,6 +86,10 @@ public class Player : MonoBehaviour
                 100,
                 effectManager.teamColour);
             currentShotCooldown = shotCooldown;
+        }
+        else if (currentShot != null)
+        {
+            FireShot(playerController.aimAngle);
         }
     }
 
@@ -119,7 +131,10 @@ public class Player : MonoBehaviour
 
     public void SetAimIndicatorPosition()
     {
-        currentShot.transform.position = aimIndicator.GetComponent<AimIndicator>().indicator.transform.position;
+        if(currentShot != null)
+        {
+            currentShot.transform.position = aimIndicator.GetComponent<AimIndicator>().indicator.transform.position;
+        }
     }
 
     public void HitShield(float amount)
@@ -149,6 +164,7 @@ public class Player : MonoBehaviour
     {
         stock = maxStock;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+        playerHealthDisplay.ManageStockImages(stock);
     }
 
 }

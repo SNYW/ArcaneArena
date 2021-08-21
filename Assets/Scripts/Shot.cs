@@ -45,7 +45,6 @@ public class Shot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null && player.playerTeam != teamIndex)
         {

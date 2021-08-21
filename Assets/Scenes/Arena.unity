@@ -11526,6 +11526,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.27242208
       objectReference: {fileID: 0}
+    - target: {fileID: 5063158136331496791, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
+      propertyPath: m_Volume
+      value: 0.895
+      objectReference: {fileID: 0}
     - target: {fileID: 5701591597837655235, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: m_Intensity
       value: 11.82
@@ -14611,13 +14615,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 219520008}
     m_Modifications:
+    - target: {fileID: 4941722942701754328, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1083594007236644083, guid: 7e6373b9600123943a5a53c7aa493107, type: 2}
     - target: {fileID: 4941722942972751280, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_Name
       value: DynamicMusicSystem
       objectReference: {fileID: 0}
     - target: {fileID: 4941722942972751280, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4941722942972751281, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_RootOrder
@@ -14667,14 +14675,26 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.816
       objectReference: {fileID: 0}
+    - target: {fileID: 4941722942984623337, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1083594007236644083, guid: 7e6373b9600123943a5a53c7aa493107, type: 2}
     - target: {fileID: 4941722943580964249, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_Volume
       value: 0.81
       objectReference: {fileID: 0}
+    - target: {fileID: 4941722943580964249, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1083594007236644083, guid: 7e6373b9600123943a5a53c7aa493107, type: 2}
     - target: {fileID: 4941722944069305625, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
       propertyPath: m_Volume
       value: 0.935
       objectReference: {fileID: 0}
+    - target: {fileID: 4941722944069305625, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1083594007236644083, guid: 7e6373b9600123943a5a53c7aa493107, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ab0af2bd4d20144afebfb65d7e9528, type: 3}
 --- !u!4 &5619412673324393624 stripped

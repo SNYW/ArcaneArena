@@ -4810,6 +4810,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1611163393184344877, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
+      propertyPath: index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201108727645587133, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3070769537257607636, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4921,6 +4929,10 @@ PrefabInstance:
     - target: {fileID: 6304018014997321852, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: teamColour.key2.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811396042609060504, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8745092292910637768, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: m_Color.b
@@ -11465,6 +11477,10 @@ PrefabInstance:
     - target: {fileID: 1504989124254400343, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: m_LightShadowCasterMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201108727645587133, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3070769537257607636, guid: 53f42f74614158a4cb0e58a3cb39215a, type: 3}
       propertyPath: m_Materials.Array.data[0]

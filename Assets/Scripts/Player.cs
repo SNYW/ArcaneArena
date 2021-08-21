@@ -174,5 +174,4 @@ public class Player : MonoBehaviour
         sounds.pitch = Random.Range(0.8f, 1.2f);
         sounds.PlayOneShot(sound);
     }
-
 }
